@@ -1,7 +1,7 @@
 Dane projektu Szkołomat
 -----------------------
 
-Otwarte dane związane ze stroną [Szkołomat - automat do wyszukiwania szkół](http://szkolomat.pl/) fundacji [Projekt: Polska](http://centrumcyfrowe.pl/).
+Otwarte dane związane ze stroną [Szkołomat - automat do wyszukiwania szkół](http://szkolomat.pl/) fundacji [Centrum Cyfrowe Projekt:Polska](http://centrumcyfrowe.pl/).
 
 
 ## Informacje
@@ -42,19 +42,19 @@ Pozostałe dane te nie są przejawem twórczej działalności o indywidualnym ch
 ## Opis danych
 
 * `szkoly_ibe_2013.csv`
-	* `id_szkoly`
+	* `id_szkoly` - identyfikator z bazy IBE
 	* `nazwa`
-	* `adres`
-	* `miejscowosc`
+	* `adres` - ulica i nr domu
+	* `miejscowosc` - miejscowość, pole często puste, wtedy należy korzystać z pola `poczta`
 	* `kod_pocztowy`
 	* `poczta` - miejscowość związana z pocztą
 	* `typ_szkoly`
 		* `SP` - szkoła podstawowa 
 		* `gimn.` -  gimnazjum
-	* `publiczna`
-	* `dla_doroslych`
-	* `specjalna`
-	* `przyszpitalna`
+	* `publiczna` - `True` lub `False`, dana tylko dla gimnazjów
+	* `dla_doroslych` - `True` lub `False`, dana tylko dla gimnazjów
+	* `specjalna` - `True` lub `False`, dana tylko dla gimnazjów
+	* `przyszpitalna` - `True` lub `False`, dana tylko dla gimnazjów
 	* `wojewodztwo`
 	* `powiat`
 	* `gmina`
@@ -63,37 +63,31 @@ Pozostałe dane te nie są przejawem twórczej działalności o indywidualnym ch
 	* `id_gminy`
 * `szkoly_ibe_sio_dowiazanie.csv` - dane IBE dowiązane do [danych SIO z roku 2013](http://cie.men.gov.pl/index.php/sio-wykaz-szkol-i-placowek/27-wykaz-wg-typow.html)
 	* `id_szkoly`
-	* `lp_sio`
-	- identyfikator (pole `Lp.` w wykazie szkół SIO z roku 2013)
-	* `odl_dop`
+	* `lp_sio` - identyfikator (pole `Lp.` w wykazie szkół SIO z roku 2013)
+	* `odl_dop` - czym niższa tym lepsze dopasowanie; gdy powyżej 2 dopasowanie może być obardzone pewnym ryzykiem
 	* `telefon`
 	* `fax`
 	* `www`
 	* `oddzialy`
 	* `liczba_uczniow`
-	* `specjalna`
-	* `publiczna`
-* `szkoly_geolokalizacja.csv
-- wyszukania za [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/)
+	* `specjalna` - `True` lub `False`
+	* `publiczna` - `True` lub `False`
+* `szkoly_geolokalizacja.csv` - wyszukania za [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/)
 	* `id_szkoly`
-	* `lat`
-	- szerokość geograficzna
-	* `lng`
-	- długość geograficzna
-	* `geolocalizer_count`
-	- liczba wyszukań (jeśli więcej niż 1 - lokalizacja niepewna) 
-	* `location_type`
-	- typ lokacji (`ROOFTOP` znaczy, że dokładnie ten budynek)
+	* `lat` - szerokość geograficzna
+	* `lng` - długość geograficzna
+	* `geolocalizer_count` - liczba wyszukań (jeśli więcej niż 1 - lokalizacja niepewna) 
+	* `location_type` - typ lokacji (`ROOFTOP` znaczy, że dokładnie ten budynek)
 * `sp_spr_2002do2013.csv`
 	* `id_szkoly`
-	* `wyn_norm_sr`
-	* `wyn_norm_std`
-	* `probka`
+	* `wyn_norm_sr` - średnia znormalizowanych wyników
+	* `wyn_norm_std` - odchylenie standardowe znormalizowanych wyników 
+	* `probka` - liczba uczniów uwzględnionych w próbce
 	* `rok`
-	* `czesc`
+	* `czesc` - puste pole
 * `sp_wskazniki_2013.csv`
 	* `id_szkoly`
-	* `gwiazdki_pow`
+	* `gwiazdki_pow` - liczba 1-5 w zależności jak średni wynik plasuje się w powiecie
 * `gimn_egz_2002do2013.csv`
 	* `id_szkoly`
 	* `egz_norm_sr` - średnia znormalizowanych wyników
@@ -107,14 +101,14 @@ Pozostałe dane te nie są przejawem twórczej działalności o indywidualnym ch
 		* `gh_p` - j. polski (od 2012)
 		* `gm_p` - przyrodnicza (od 2012)
 		* `gm_m` - matematyczna
-* `gimn_wskazniki_2013.csv`
+* `gimn_wskazniki_2013.csv` - dane zgodnie z [Statystyczne modelowanie wskaźników edukacyjnej wartości dodanej - podsumowanie polskich doświadczeń](http://www.ibe.edu.pl/images/publikacje/ibe-raport-modelowanie-wskaznikow-ewd.pdf)
 	* `id_szkoly`
-	* `egz_norm_sr_hum`
-	* `egz_norm_std_hum`
+	* `egz_norm_sr_hum` - śr. wynik humanistyczny zgodnie z metodologią IBE (różna od normalizacji
+	* `egz_norm_std_hum` - odchylenie standardowe, j.w.
 	* `ewd_min90_hum` - dolna granica 90% przedziału ufności dla Edukacyjnej Wartości Dodanej dla części humanistycznej
 	* `ewd_max90_hum` - górna granica 90% przedziału ufności dla Edukacyjnej Wartości Dodanej dla części humanistycznej
-	* `egz_norm_sr_mp`
-	* `egz_norm_std_mp`
+	* `egz_norm_sr_mp` - śr. wynik matematyczno-przyrodniczy zgodnie z metodologią IBE (różna od normalizacji)
+	* `egz_norm_std_mp`- odchylenie standardowe, j.w.
 	* `ewd_min90_mp` - dolna granica 90% przedziału ufności dla Edukacyjnej Wartości Dodanej dla części matematyczno-przyrodniczej
 	* `ewd_max90_mp` - górna granica 90% przedziału ufności dla Edukacyjnej Wartości Dodanej dla części matematyczno-przyrodniczej
-	* `gwiazdki_pow`
+	* `gwiazdki_pow` - liczba 1-5 w zależności jak średni wynik plasuje się w powiecie
